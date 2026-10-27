@@ -1,0 +1,5 @@
+[
+ {"id":1,"name":"Starter home","type":"home","amount":2500000,"rate":10,"years":10},
+ {"id":2,"name":"Family home","type":"home","amount":5000000,"rate":7.5,"years":15},
+ {"id":3,"name":"Personal expenses","type":"personal","amount":1000000,"rate":12,"years":5}
+]

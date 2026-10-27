@@ -1,0 +1,18 @@
+Subject: Streamhub QA Automation Assessment — Dharthi Nayunigari
+
+Dear Roxana,
+
+Thank you for the opportunity to complete the QA Automation Assessment.
+
+I have completed Section A of the assessment and uploaded the implementation, automated tests, SQL exercises and test execution results to GitHub:
+
+[INSERT REAL GITHUB REPOSITORY URL]
+
+The README includes the setup and execution instructions, framework design, test results and a reflection on my use of AI-assisted development.
+
+Thank you for your consideration.
+
+Kind regards,
+Dharthi Nayunigari
+
+NOTE: Send only AFTER the real tests have run, results are attached, and the GitHub repository exists.

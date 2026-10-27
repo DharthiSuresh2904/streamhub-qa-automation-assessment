@@ -1,0 +1,8 @@
+const {Given,When,Then}=require('@cucumber/cucumber');
+const {expect}=require('playwright/test');
+const {EmiPage}=require('../pages/EmiPage');
+Given('the user opens the EMI dashboard',async function(){this.emiPage=new EmiPage(this.page);await this.emiPage.open();});
+Then('the dashboard heading should be visible',async function(){await expect(this.page.getByRole('heading',{name:'Loan Insights'})).toBeVisible();});
+When(/^the user calculates a loan of (\d+(?:\.\d+)?) at (\d+(?:\.\d+)?) percent over (\d+) years$/,async function(amount,rate,years){amount=Number(amount);rate=Number(rate);years=Number(years);this.loan={amount,rate,years};await this.emiPage.setLoan(amount,rate,years);});
+Then('the displayed EMI should match the independently computed amount within 1 rupee',async function(){const {amount,rate,years}=this.loan;const n=years*12,r=rate/1200;const expected=r===0?amount/n:amount*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);const visible=await this.page.getByTestId('emi-result').innerText();const actual=Number(visible.replace(/[^0-9.]/g,''));expect(Math.abs(actual-expected)).toBeLessThanOrEqual(1);});
+Then('the repayment chart should contain positive principal and interest data',async function(){const chart=this.emiPage.chart;await expect(chart).toBeVisible();const values=await chart.evaluate(el=>({principal:Number(el.dataset.principal),interest:Number(el.dataset.interest),width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height}));expect(values.principal).toBeGreaterThan(0);expect(values.interest).toBeGreaterThan(0);expect(values.width).toBeGreaterThan(0);expect(values.height).toBeGreaterThan(0);});

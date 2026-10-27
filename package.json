@@ -1,0 +1,23 @@
+{
+  "name": "streamhub-qa-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Section A: EMI app, Playwright + Cucumber, API and SQL assessment",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "cucumber-js --tags \"not @intentional-failure\"",
+    "test:ui": "cucumber-js features/emi.feature",
+    "test:api": "cucumber-js features/api.feature",
+    "test:broken": "cucumber-js features/broken-locators.feature",
+    "sql:run": "python scripts/run_sql.py"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "playwright": "^1.56.1",
+    "@playwright/test": "^1.56.1"
+  }
+}

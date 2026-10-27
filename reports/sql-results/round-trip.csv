@@ -1,0 +1,3 @@
+outgoing_id,return_id,account_a,account_b,amount_sent,amount_returned,sent_at,returned_at
+1,2,A,B,1000.0,950.0,2024-07-01 09:00:00,2024-07-01 12:00:00
+7,8,G,H,1250.0,1300.0,2024-07-07 09:00:00,2024-07-08 08:00:00

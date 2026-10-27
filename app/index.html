@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Loan Insights | EMI Dashboard</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+<body>
+    <div class="wrap">
+        <header>
+            <div>
+                <span class="eyebrow">STREAMHUB QA DEMO</span>
+                <h1>Loan Insights</h1>
+                <p>EMI calculator and repayment analytics</p>
+            </div>
+            <a class="nav" href="#calculator" aria-label="Go to calculator">Calculator ↓</a>
+        </header>
+<section class="intro">
+    <div>
+        <h2>Know your monthly payment.</h2>
+        <p>Estimate your repayment before you borrow. Results are illustrative, based on a fixed rate.</p>
+    </div>
+    <div class="pill">Instant estimate · No login required</div>
+</section>
+<main id="calculator"><section class="panel form">
+    <h2>Loan details</h2>
+    <form id="loan-form">
+        <label for="amount">Loan amount (₹)</label>
+        <input id="amount" data-testid="loan-amount" type="number" min="1" step="1" value="2500000" required>
+        <label for="rate">Annual interest rate (%)</label>
+        <input id="rate" data-testid="interest-rate" type="number" min="0" max="100" step="0.1" value="10" required>
+        <label for="years">Tenure (years)</label>
+        <input id="years" data-testid="loan-tenure" type="number" min="1" max="50" step="1" value="10" required>
+        <button type="submit">Calculate EMI</button>
+    </form>
+    <p class="note" id="form-error" role="alert"></p>
+</section>
+<section class="panel result">
+    <span class="eyebrow">MONTHLY EMI</span>
+    <div class="big" id="emi" data-testid="emi-result" aria-live="polite">—</div>
+    <div class="metrics"><div><span>Principal</span>
+        <strong id="principal" data-testid="principal-value">—</strong>
+    </div>
+    <div>
+        <span>Total interest</span>
+        <strong id="interest" data-testid="interest-value">—</strong>
+    </div>
+    <div>
+        <span>Total payable</span>
+        <strong id="total" data-testid="total-value">—</strong>
+    </div>
+</div>
+<h3>Repayment breakdown</h3>
+<div class="chartrow">
+    <div class="donut" id="donut" role="img" aria-label="Principal and interest chart" data-testid="repayment-chart"></div>
+    <div class="legend">
+        <div>
+            <i class="dot principal"></i> Principal <b id="principal-percent">—</b>
+        </div>
+        <div>
+            <i class="dot interest"></i> Interest <b id="interest-percent">—</b>
+        </div>
+    </div>
+</div>
+<p class="note">The chart shows the proportion of principal versus total interest paid.</p>
+</section>
+</main>
+<footer>Assessment demonstration • All calculations are performed locally in your browser.</footer>
+</div>
+<script src="/main.js"></script>
+</body>
+</html>
